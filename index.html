@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ビジネスで稼げるようになったのに、なぜかお金の不安が消えない。</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Georgia', serif;
+      color: #1a1a2e;
+      background: #f8f7f4;
+      line-height: 1.9;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      background: linear-gradient(160deg, #0d1b3e 0%, #1a2f5e 60%, #0d1b3e 100%);
+      color: #fff;
+      padding: 80px 20px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(196,160,80,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      display: inline-block;
+      border: 1px solid rgba(196,160,80,0.6);
+      color: #c4a050;
+      font-size: 11px;
+      letter-spacing: 3px;
+      padding: 6px 20px;
+      margin-bottom: 36px;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+
+    .hero h1 {
+      font-size: clamp(22px, 5vw, 36px);
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+      color: #fff;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #c4a050;
+      border-bottom: 1px solid rgba(196,160,80,0.5);
+      padding-bottom: 2px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      letter-spacing: 0.1em;
+    }
+
+    /* セクション共通 */
+    .section {
+      padding: 72px 20px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #c4a050;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 400;
+      line-height: 1.7;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #0d1b3e;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: #c4a050;
+    }
+
+    /* 共感セクション */
+    .empathy {
+      background: #fff;
+      padding: 72px 20px;
+    }
+
+    .empathy-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .empathy-lead {
+      text-align: center;
+      font-size: 17px;
+      line-height: 2;
+      color: #1a1a2e;
+      margin-bottom: 48px;
+    }
+
+    .empathy-lead strong {
+      display: block;
+      font-size: 20px;
+      color: #0d1b3e;
+      margin: 16px 0;
+      font-weight: 500;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .check-list li {
+      padding: 16px 20px 16px 52px;
+      position: relative;
+      border-bottom: 1px solid #f0ede6;
+      font-size: 15px;
+      color: #2a2a3e;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      line-height: 1.7;
+    }
+
+    .check-list li:first-child {
+      border-top: 1px solid #f0ede6;
+    }
+
+    .check-list li::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #c4a050;
+      border-radius: 50%;
+      background: rgba(196,160,80,0.08);
+    }
+
+    .check-list li::after {
+      content: '✓';
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #c4a050;
+      font-size: 12px;
+    }
+
+    .empathy-close {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 15px;
+      color: #555;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      line-height: 1.9;
+    }
+
+    /* 問題提起セクション */
+    .problem {
+      background: #0d1b3e;
+      color: #fff;
+      padding: 80px 20px;
+    }
+
+    .problem-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .problem .section-label {
+      color: rgba(196,160,80,0.8);
+    }
+
+    .problem .section-title {
+      color: #fff;
+      margin-bottom: 48px;
+    }
+
+    .problem-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 2;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      margin-bottom: 28px;
+    }
+
+    .problem-highlight {
+      background: rgba(196,160,80,0.12);
+      border-left: 3px solid #c4a050;
+      padding: 24px 28px;
+      margin: 40px 0;
+      font-size: 16px;
+      color: #fff;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      line-height: 1.9;
+    }
+
+    /* 解決策セクション */
+    .solution {
+      background: #f8f7f4;
+      padding: 80px 20px;
+    }
+
+    .solution-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .solution-text {
+      font-size: 15px;
+      color: #333;
+      line-height: 2;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    /* 2つの理由 */
+    .reasons {
+      background: #fff;
+      padding: 80px 20px;
+    }
+
+    .reasons-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .reason-card {
+      border: 1px solid #e8e4da;
+      padding: 40px 36px;
+      margin-bottom: 24px;
+      position: relative;
+      background: #fff;
+    }
+
+    .reason-number {
+      position: absolute;
+      top: -18px;
+      left: 36px;
+      background: #c4a050;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 5px 16px;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+
+    .reason-title {
+      font-size: 18px;
+      color: #0d1b3e;
+      margin-bottom: 16px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .reason-text {
+      font-size: 14px;
+      color: #555;
+      line-height: 2;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+
+    /* こんな方に */
+    .target {
+      background: linear-gradient(160deg, #0d1b3e 0%, #1a2f5e 100%);
+      padding: 80px 20px;
+      color: #fff;
+    }
+
+    .target-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .target .section-label {
+      color: rgba(196,160,80,0.8);
+    }
+
+    .target .section-title {
+      color: #fff;
+    }
+
+    .target-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .target-list li {
+      padding: 18px 20px 18px 56px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 15px;
+      color: rgba(255,255,255,0.88);
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      line-height: 1.7;
+    }
+
+    .target-list li:first-child {
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .target-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #c4a050;
+      font-size: 14px;
+    }
+
+    /* プロフィール */
+    .profile {
+      background: #fff;
+      padding: 80px 20px;
+    }
+
+    .profile-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .profile-card {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .profile-img {
+      width: 160px;
+      min-width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 3px solid #e8d9b8;
+    }
+
+    .profile-body {}
+
+    .profile-name {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #c4a050;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .profile-title {
+      font-size: 17px;
+      color: #0d1b3e;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .profile-text {
+      font-size: 14px;
+      color: #555;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      line-height: 2;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .profile-tag {
+      font-size: 11px;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      color: #0d1b3e;
+      border: 1px solid #c4a050;
+      padding: 4px 12px;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 560px) {
+      .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-tags {
+        justify-content: center;
+      }
+    }
+
+    /* CTA */
+    .cta {
+      background: #f8f7f4;
+      padding: 80px 20px 100px;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta .section-label {
+      color: #c4a050;
+    }
+
+    .cta .section-title {
+      font-size: clamp(20px, 4vw, 26px);
+      margin-bottom: 24px;
+    }
+
+    .cta-text {
+      font-size: 14px;
+      color: #555;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      line-height: 2;
+      margin-bottom: 48px;
+    }
+
+    .cta-box {
+      background: #fff;
+      border: 1px solid #e8e4da;
+      padding: 40px 36px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .cta-box-title {
+      font-size: 16px;
+      color: #0d1b3e;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .cta-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cta-box ul li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      font-size: 14px;
+      color: #444;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      border-bottom: 1px solid #f5f3ee;
+      line-height: 1.7;
+    }
+
+    .cta-box ul li:last-child {
+      border-bottom: none;
+    }
+
+    .cta-box ul li::before {
+      content: '─';
+      position: absolute;
+      left: 0;
+      color: #c4a050;
+      font-size: 12px;
+    }
+
+    .cta-btn-wrap {
+      text-align: center;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #c4a050 0%, #e8c878 50%, #c4a050 100%);
+      color: #0d1b3e;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 22px 48px;
+      letter-spacing: 0.1em;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.3s;
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -60%; }
+      100% { left: 150%; }
+    }
+
+    .cta-btn:hover {
+      opacity: 0.9;
+    }
+
+    .cta-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #999;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* 区切り線 */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: #c4a050;
+      margin: 32px auto;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 480px) {
+      .hero {
+        padding: 60px 20px 70px;
+      }
+      .reason-card {
+        padding: 36px 24px 28px;
+      }
+      .cta-box {
+        padding: 32px 24px;
+      }
+      .cta-btn {
+        padding: 20px 24px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <p class="hero-label">FOR SUCCESSFUL WOMEN</p>
+    <h1>
+      ビジネスで稼げるようになったのに、<br>
+      なぜか<em>お金の不安</em>が消えない。
+    </h1>
+    <div class="divider"></div>
+    <p class="hero-sub">自分のお金は、自分で守る。その一歩を、一緒に。</p>
+  </section>
+
+  <!-- 共感 -->
+  <section class="empathy">
+    <div class="empathy-inner">
+      <p class="empathy-lead">
+        ビジネスは順調。<br>
+        収入もある。<br><br>
+        なのに、なぜか心のどこかに<br>
+        ずっとこんな声がある。
+        <strong>「このお金、ちゃんと守れているのかな」</strong>
+        思い当たることは、ありませんか？
+      </p>
+
+      <ul class="check-list">
+        <li>「任せておけば大丈夫」と言われて投資して、痛い目を見た</li>
+        <li>忙しくて、自分で勉強する時間が取れない</li>
+        <li>ビジネス以外の収入の柱が、まだない</li>
+        <li>子供の将来のためにも、正しいお金の知識を身につけたい</li>
+        <li>自分のお金を、自分でコントロールできていない気がする</li>
+      </ul>
+
+      <p class="empathy-close">
+        ビジネスを頑張っているからこそ<br>
+        お金への不安が、なくならない。<br><br>
+        そういう方に、読んでほしいページです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 問題提起 -->
+  <section class="problem">
+    <div class="problem-inner">
+      <p class="section-label">WHY IT HAPPENS</p>
+      <h2 class="section-title">なぜ、忙しい起業家ほど<br>投資で失敗するのか</h2>
+
+      <p class="problem-text">
+        理由は一つです。
+      </p>
+
+      <div class="problem-highlight">
+        「時間がないまま、誰かに任せてしまうから」
+      </div>
+
+      <p class="problem-text">
+        稼ぐことに集中してきたあなたには<br>
+        お金を「増やす・守る」スキルを学ぶ余裕がなかった。
+      </p>
+
+      <p class="problem-text">
+        だから、わかりやすい言葉で近づいてくる人を<br>
+        信じてしまう。
+      </p>
+
+      <p class="problem-text">
+        でも、本当の安心は<br>
+        自分でコントロールできるところからしか<br>
+        生まれません。
+      </p>
+    </div>
+  </section>
+
+  <!-- 解決策 -->
+  <section class="solution">
+    <div class="solution-inner">
+      <p class="section-label">SOLUTION</p>
+      <h2 class="section-title">忙しくても大丈夫。<br><em>レールに乗るだけ</em>で、<br>トレードが学べます。</h2>
+
+      <p class="solution-text">
+        ゼロから全部勉強し直す必要はありません。<br><br>
+        やることが明確で、迷わず進めるように<br>
+        設計された仕組みがあります。<br><br>
+        ビジネスで結果を出してきたあなたなら<br>
+        「仕組みに乗る」ことの強さは、よくわかるはずです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 2つの理由 -->
+  <section class="reasons">
+    <div class="reasons-inner">
+      <p class="section-label">WHY CHOOSE US</p>
+      <h2 class="section-title">選ばれる<em>3つの理由</em></h2>
+
+      <div class="reason-card">
+        <span class="reason-number">REASON 01</span>
+        <h3 class="reason-title">あなたに合う方法で、増やして守れる</h3>
+        <p class="reason-text">
+          「みんな同じ方法」ではありません。<br>
+          あなたのライフスタイル、リスクの感覚、使える時間に合わせた<br>
+          「あなただけの学び方」を一緒に見つけていきます。<br><br>
+          自分に合った方法だから、無理なく続けられる。<br>
+          続けられるから、結果につながります。
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <span class="reason-number">REASON 02</span>
+        <h3 class="reason-title">レールに乗るだけで学べる仕組み</h3>
+        <p class="reason-text">
+          何をいつやればいいかが決まっているので<br>
+          「何から始めればいいかわからない」がありません。<br><br>
+          ビジネスの合間に、無理なく続けられます。
+        </p>
+      </div>
+
+      <div class="reason-card">
+        <span class="reason-number">REASON 03</span>
+        <h3 class="reason-title">トレードだけじゃない、もう一本の収入軸</h3>
+        <p class="reason-text">
+          トレードスキルを身につけながら<br>
+          代理店として紹介収入を得る仕組みも用意しています。<br><br>
+          学びながら、ビジネスの新しい柱をつくれます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- こんな方に -->
+  <section class="target">
+    <div class="target-inner">
+      <p class="section-label">WHO THIS IS FOR</p>
+      <h2 class="section-title">こんな方に<br>向いています</h2>
+
+      <ul class="target-list">
+        <li>ビジネスで安定した収入があるが、お金の不安がある</li>
+        <li>過去に「任せる系」の投資で失敗したことがある</li>
+        <li>忙しくても続けられる方法を探している</li>
+        <li>子供の将来のためにも、正しいお金の知識を身につけたい</li>
+        <li>ビジネス以外の収入の柱がほしい</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- プロフィール -->
+  <section class="profile">
+    <div class="profile-inner">
+      <p class="section-label">PROFILE</p>
+
+      <div class="profile-card">
+        <img src="IMG_0123--.jpg" alt="津田けいこ" class="profile-img">
+        <div class="profile-body">
+          <p class="profile-name">KEIKO TSUDA</p>
+          <p class="profile-title">「知らないから怖いだけ」を伝える<br>マネー教育家　津田けいこ</p>
+          <p class="profile-text">
+            元医療職。2人の子供を育てながら起業。<br>
+            リストラ、投資詐欺も経験した。<br><br>
+            それでも気づいたのは、<br>
+            「怖かったのは、知らなかっただけ」ということ。<br><br>
+            知ってからは、やらない選択肢はなかった。<br>
+            同じ気づきを、一人でも多くの人に届けたい。<br>
+            その想いが今の活動の原点です。
+          </p>
+          <div class="profile-tags">
+            <span class="profile-tag">元医療職</span>
+            <span class="profile-tag">2児の母</span>
+            <span class="profile-tag">リストラ経験</span>
+            <span class="profile-tag">投資詐欺経験</span>
+            <span class="profile-tag">K-connect代表</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <p class="section-label">FIRST STEP</p>
+      <h2 class="section-title">まず、話しましょう。</h2>
+
+      <p class="cta-text">
+        いきなり入学、ではありません。<br>
+        最初は<strong>無料の個別セッション</strong>で<br>
+        あなたの状況をお聞きします。
+      </p>
+
+      <div class="cta-box">
+        <p class="cta-box-title">無料個別セッションでお話しすること</p>
+        <ul>
+          <li>今の収入・資産への不安や疑問</li>
+          <li>投資に踏み出せていない理由の整理</li>
+          <li>あなたのライフスタイルに合った学び方の確認</li>
+        </ul>
+      </div>
+
+      <p class="cta-text">
+        「合わない」と思えば、それでOKです。<br>
+        まずは話してみることから始めましょう。
+      </p>
+
+      <div class="cta-btn-wrap">
+        <a href="https://lin.ee/wH9CfJR" class="cta-btn" target="_blank">
+          無料個別セッションを申し込む（LINE登録）▶
+        </a>
+      </div>
+
+      <p class="cta-note">
+        ※ LINEに登録後、「セッション希望」とメッセージください。<br>
+        ※ 無料セッションは先着順でご案内しています。
+      </p>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer style="background:#1a1a2e; padding:32px 20px; text-align:center;">
+    <p style="font-size:12px; color:rgba(255,255,255,0.4); font-family:'Hiragino Kaku Gothic ProN',sans-serif; line-height:2;">
+      © K-connect合同会社　津田けいこ<br>
+      <a href="https://my38p.com/lp/gxGpnlAi" target="_blank" style="color:rgba(255,255,255,0.5); text-decoration:underline;">プライバシーポリシー</a>
+    </p>
+  </footer>
+
+</body>
+</html>
